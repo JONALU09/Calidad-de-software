@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Gestión Universitaria{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header><div class="brand">SGU <span>Sistema de Gestión Universitaria</span></div>
+{% if session.get('user_id') %}
+<nav><a href="{{ url_for('students.list_students') }}">Estudiantes</a><a href="{{ url_for('academic.grades') }}">Calificaciones</a><a href="{{ url_for('requests.list_requests') }}">Trámites</a><a href="{{ url_for('auth.logout') }}">Cerrar sesión</a></nav>
+{% endif %}</header>
+<main>
+{% for category, message in get_flashed_messages(with_categories=true) %}
+<div class="alert {{ category }}">{{ message }}</div>
+{% endfor %}
+{% block content %}{% endblock %}
+</main>
+<footer>Proyecto académico · Python + Flask + SQLite</footer>
+</body></html>

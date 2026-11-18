@@ -1,0 +1,9 @@
+HISTORIAL REAL DE COMMITS
+2c107d6 fix: corregir validacion y sintaxis del modulo de estudiantes
+7554385 test: cubrir validacion de estados de tramites
+9d9d9a0 fix: validar datos y manejar registros inexistentes
+5896233 test: agregar pruebas automatizadas de flujos principales
+6851d36 chore: crear estructura inicial del sistema universitario
+
+ESTADO DEL REPOSITORIO
+Limpio

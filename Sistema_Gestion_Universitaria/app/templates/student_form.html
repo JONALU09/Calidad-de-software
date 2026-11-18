@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block content %}<section class="card form-card"><h1>Registrar estudiante</h1>
+<form method="post"><label>Matrícula</label><input name="code" required maxlength="20">
+<label>Nombre completo</label><input name="full_name" required maxlength="100">
+<label>Correo electrónico</label><input name="email" type="email" required maxlength="120">
+<label>Carrera</label><input name="career" required maxlength="100">
+<button>Guardar estudiante</button><a class="cancel" href="{{ url_for('students.list_students') }}">Cancelar</a></form></section>{% endblock %}

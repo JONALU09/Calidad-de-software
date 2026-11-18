@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block content %}
+<div class="heading"><div><h1>Estudiantes</h1><p>Directorio académico registrado.</p></div><a class="button" href="{{ url_for('students.create_student') }}">+ Nuevo estudiante</a></div>
+<div class="card"><table><thead><tr><th>Matrícula</th><th>Nombre</th><th>Correo</th><th>Carrera</th></tr></thead><tbody>
+{% for s in students %}<tr><td>{{ s.code }}</td><td>{{ s.full_name }}</td><td>{{ s.email }}</td><td>{{ s.career }}</td></tr>
+{% else %}<tr><td colspan="4" class="empty">Aún no hay estudiantes registrados.</td></tr>{% endfor %}
+</tbody></table></div>{% endblock %}

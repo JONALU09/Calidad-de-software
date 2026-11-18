@@ -1,0 +1,4 @@
+OK: todos los archivos Python compilan sin errores de sintaxis.
+NO EJECUTADO EN ESTE ENTORNO: Flask no está instalado y no hay conexión a Internet para instalar requirements.txt. Ejecutar localmente: pip install -r requirements.txt && pytest -v.
+
+Pruebas automatizadas incluidas: login disponible; contraseña incorrecta; protección de rutas; alta de estudiante; matrícula duplicada; rango de calificación; alta y cambio de estado de trámite; correo inválido; trámite inexistente; estado inválido.

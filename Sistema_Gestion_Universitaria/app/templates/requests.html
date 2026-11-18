@@ -1,0 +1,9 @@
+{% extends "base.html" %}{% block content %}<h1>Trámites y constancias</h1><p>Seguimiento de solicitudes estudiantiles.</p>
+<section class="card"><h2>Registrar trámite</h2><form method="post" action="{{ url_for('requests.create_request') }}" class="inline-form">
+<select name="student_id" required><option value="">Estudiante</option>{% for s in students %}<option value="{{ s.id }}">{{ s.full_name }}</option>{% endfor %}</select>
+<select name="request_type" required><option value="">Tipo de trámite</option><option>Constancia de estudios</option><option>Historial académico</option><option>Reposición de credencial</option></select>
+<input name="details" placeholder="Descripción" required maxlength="250"><button>Registrar</button></form></section>
+<section class="card"><h2>Solicitudes</h2><table><thead><tr><th>Estudiante</th><th>Trámite</th><th>Detalles</th><th>Estado</th><th>Actualizar</th></tr></thead><tbody>
+{% for r in rows %}<tr><td>{{ r.full_name }}<small>{{ r.code }}</small></td><td>{{ r.request_type }}</td><td>{{ r.details }}</td><td><span class="status">{{ r.status }}</span></td><td><form method="post" action="{{ url_for('requests.update_status', request_id=r.id) }}" class="status-form"><select name="status">{% for state in ['Recibida','En revisión','En proceso','Resuelta'] %}<option {% if state == r.status %}selected{% endif %}>{{ state }}</option>{% endfor %}</select><button class="small">Actualizar</button></form></td></tr>
+{% else %}<tr><td colspan="5" class="empty">No hay trámites registrados.</td></tr>{% endfor %}
+</tbody></table></section>{% endblock %}
